@@ -17,10 +17,13 @@ $config['web']['auth_provider_x509_cert_url'] = 'https://www.googleapis.com/oaut
 $config['web']['client_secret'] = CLIENT_SECRET;
 $config['web']['redirect_uris'][] = 'http://localhost';
 
-/*Caso se queira autenticar via o arquivo de credenciais
-
+/* Caso se queira autenticar via o arquivo de credenciais
+ * $teste->setCredentialsPath('credentials.json');
+ * 
+ * Caso não exista o arquivo token.json
+ * $teste->setRefreshToken('1\/\/0h35WbVGLlsHrCgYIARAAGBESNwF-L9IrnIPjKWr1L7AtB2aqt_zNWkg4OpmQGrBvdhLrckCD3NthmEy6rFFFCYV0L6rUJuqUhMs');
  */
-$teste->setCredentialsPath('credentials.json');
-//$teste->setConfig($config);
+
+$teste->setConfig($config);
 $teste->setScopes(Google_Service_Drive::DRIVE);
 $teste->uploadLargerFile('t.sql.gz', $teste::TAMANHO_MINIMO_CHUNK);
